@@ -17,6 +17,150 @@ import t1 from "@/assets/t1.jpg";
 import t2 from "@/assets/t2.jpg";
 import t3 from "@/assets/t3.jpg";
 import t4 from "@/assets/t4.jpg";
+import l1 from "@/assets/l1.png";
+import l2 from "@/assets/l2.png";
+import l3 from "@/assets/l3.png";
+import l4 from "@/assets/l4.png";
+import certificate from "@/assets/certificate.png";
+import { LearnerCard } from "@/components/LearnerCard";
+import { LinkedInPostCard } from "@/components/LinkedInPostCard";
+
+const logos = {
+  spotify: <div className="flex items-center gap-1 text-[#1DB954]"><div className="w-4 h-4 rounded-full bg-[#1DB954] flex items-center justify-center"><div className="w-2 h-0.5 bg-white rotate-45"></div></div>Spotify</div>,
+  google: <div className="flex items-center gap-1"><span className="text-[#4285F4]">G</span><span className="text-[#EA4335]">o</span><span className="text-[#FBBC05]">o</span><span className="text-[#4285F4]">g</span><span className="text-[#34A853]">l</span><span className="text-[#EA4335]">e</span></div>,
+  meta: <div className="text-[#0668E1] font-bold">Meta</div>,
+  amazon: <div className="font-extrabold italic text-[#FF9900]">amazon</div>,
+  canva: <div className="text-[#00C4CC] font-bold">Canva</div>,
+  salesforce: <div className="text-[#00A1E0] font-bold italic">salesforce</div>,
+  microsoft: <div className="flex gap-0.5"><div className="grid grid-cols-2 gap-0.5"><div className="w-1.5 h-1.5 bg-[#F25022]"></div><div className="w-1.5 h-1.5 bg-[#7FBA00]"></div><div className="w-1.5 h-1.5 bg-[#00A1F1]"></div><div className="w-1.5 h-1.5 bg-[#FFB900]"></div></div>Microsoft</div>
+};
+
+const learnerData = [
+  { name: "John", image: l1, logo: logos.spotify },
+  { name: "Sarah", image: l2, logo: logos.google },
+  { name: "Mike", image: l3, logo: logos.meta },
+  { name: "Elena", image: l4, logo: logos.amazon },
+  { name: "Alex", image: t1, logo: logos.canva },
+  { name: "Priya", image: t2, logo: logos.salesforce },
+  { name: "David", image: t3, logo: logos.microsoft },
+  { name: "Emma", image: t4, logo: logos.google },
+  { name: "Chris", image: l1, logo: logos.meta },
+  { name: "Anita", image: l2, logo: logos.spotify },
+];
+
+const linkedInPosts = [
+  {
+    name: "Tammy Norfolk CHRL",
+    avatar: t1,
+    connectionLevel: "2nd+",
+    headline: "Strategic Learning and Development Leader | Talent...",
+    timestamp: "1w",
+    content: "I recently participated in a Generative AI workshop offered by AI Mastery, focusing on how ChatGPT integrates with other GPT applications. This session provided a solid introduction to the capabilities of Generative AI, extending beyond simple Q&A interactions to include creating custom GPT models.\n\nA key insight for me was seeing the diverse applications of these technologies and understanding their potential beyond simple text generation. The workshop used practical examples to demonstrate how Generative AI can be used in various contexts.",
+    hashtags: ["GenerativeAI", "AI", "ChatGPT", "Technology", "Learning", "AIMastery"],
+    image: certificate,
+    likes: 24,
+    comments: 1
+  },
+  {
+    name: "Alfredo Garcia Quevedo",
+    avatar: t2,
+    connectionLevel: "3rd+",
+    headline: "Encargado de Costos en Empacadora del Golfo SA d...",
+    timestamp: "2w",
+    content: "Just wrapped up the Generative AI workshop and had to share my thoughts!\n\nRecently attended the Generative AI workshop, and it was an incredible experience!\nThe insights gained and hands-on learning were beyond valuable. Big thanks to Vaibhav and the AI Mastery team for organizing such an insightful event.\n\nHighlights:\n- In-depth discussions on the latest trends in Generative AI.\n- Practical sessions that demystified complex concepts.\n- Engaging Q&A sessions that added immense value.",
+    hashtags: ["GenerativeAI", "AI Workshop", "LearningExperience"],
+    image: certificate,
+    likes: 42,
+    comments: 5
+  },
+  {
+    name: "Jason Sequeira",
+    avatar: t3,
+    connectionLevel: "2nd",
+    headline: "Content Writer | Copywriter | SEO | Content Strategy...",
+    timestamp: "4d",
+    content: "AI Mastery's mind blowing workshop! It was amazing to know about ChatGPT & Generative AI. Vaibhav explains very well, that it really blew my mind.\n\nI think more than just the content what I really loved about Vaibhav is his passion to help students, a right mentor can drive you towards your goal.",
+    hashtags: ["ai", "content", "learning"],
+    image: certificate,
+    likes: 38,
+    comments: 2
+  }
+];
+
+const featuredTools = [
+  { name: "descript", logo: <div className="flex items-center gap-2 font-bold text-[#00A3FF]"><div className="w-6 h-6 flex flex-col gap-0.5"><div className="w-full h-1.5 bg-[#00A3FF]"></div><div className="w-3/4 h-1.5 bg-[#00A3FF]"></div><div className="w-full h-1.5 bg-[#00A3FF]"></div></div>descript</div> },
+  { name: "HeyGen", logo: <div className="flex items-center gap-2 font-bold"><div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-purple-500 via-pink-500 to-orange-500"></div>HeyGen</div> },
+  { name: "tome", logo: <div className="flex items-center gap-2 font-bold"><div className="w-6 h-6 rounded-full border-4 border-[#FF00FF]"></div>tome</div> },
+  { name: "ChatGPT", logo: <div className="flex items-center gap-2 font-bold text-[#10A37F] font-mono"><Sparkles className="h-5 w-5 fill-[#10A37F] text-[#10A37F]"/> ChatGPT</div> },
+  { name: "D-ID", logo: <div className="flex items-center gap-2 font-black italic tracking-tighter">D-ID<span className="text-orange-500 text-2xl font-normal">{"}"}</span></div> },
+  { name: "vidyo.ai", logo: <div className="flex items-center gap-2 font-bold"><div className="w-6 h-6 flex items-center justify-center"><div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-[#7000FF] border-b-[8px] border-b-transparent"></div></div>vidyo.ai</div> },
+];
+
+const moreToolsRow1 = ["Claude", "Midjourney", "Canva AI", "Notion AI", "Zapier", "Gamma"];
+const moreToolsRow2 = ["Perplexity", "Copilot", "ElevenLabs", "Runway", "Synthesia", "Firefly"];
+
+const curriculumData = [
+  { 
+    icon: Brain, 
+    title: "Understanding Generative AI & Prompt Engineering",
+    details: [
+      "Gain a deep, working knowledge of how generative AI models like ChatGPT, Claude, and Gemini function.",
+      "Learn the key principles of prompt engineering to get precise, high-quality outputs from any AI tool.",
+      "Understand how to effectively communicate with AI, whether for generating content, code, images, or strategy ideas.",
+      "Walk away with practical skills to leverage AI for a variety of tasks and business needs."
+    ]
+  },
+  { 
+    icon: Sparkles, 
+    title: "ChatGPT and 20+ AI Tools",
+    details: [
+      "Mastering ChatGPT for advanced business automation and complex problem solving.",
+      "Hands-on exploration of image generation tools like Midjourney, DALL-E, and Leonardo.",
+      "Professional video creation and editing using AI tools like HeyGen, Runway, and Descript.",
+      "Daily productivity transformation with Notion AI, Microsoft Copilot, and Google Gemini."
+    ]
+  },
+  { 
+    icon: Wand2, 
+    title: "Create AI-Powered Writing Assistants",
+    details: [
+      "Building and training custom GPTs tailored to your unique business writing style.",
+      "Automating high-conversion email marketing, blog drafting, and social media content.",
+      "Using AI to maintain a consistent brand voice across all digital platforms.",
+      "Rapidly summarizing long documents and extracting key insights with AI."
+    ]
+  },
+  { 
+    icon: Zap, 
+    title: "Automate Workflows with AI and No-Code Platforms",
+    details: [
+      "Integrating ChatGPT with Zapier and Make.com to build autonomous workflows.",
+      "Creating AI-powered lead magnets and automated customer support bots.",
+      "Seamlessly connecting AI outputs to your CRM and task management tools.",
+      "Eliminating repetitive data entry tasks using smart AI automation."
+    ]
+  },
+  { 
+    icon: Layers, 
+    title: "Explore Image and Video Generation with AI",
+    details: [
+      "Mastering text-to-video and video-to-video transformations with Runway Gen-2.",
+      "Generating consistent AI characters for brand storytelling and marketing.",
+      "High-end product photography and background replacement using AI creative suites.",
+      "Cinematic image creation and prompt-based art direction."
+    ]
+  },
+  { 
+    icon: Globe, 
+    title: "Build Digital Products without Code",
+    details: [
+      "Generating complete, high-converting landing pages in minutes using AI tools.",
+      "Architecting and launching AI-powered micro-SaaS and digital tools.",
+      "Rapid prototyping of web and mobile apps using AI-first design platforms.",
+      "Monetizing AI by creating and selling digital assets and specialized prompts."
+    ]
+  },
+];
 
 const Index = () => {
   const [open, setOpen] = useState(false);
@@ -161,8 +305,19 @@ const Index = () => {
           <h2 className="text-center text-2xl md:text-3xl font-bold max-w-3xl mx-auto">
             Join who have successfully completed the program to become an AI-powered professional <span className="text-gradient-primary">2 Million+ Global Learners</span>
           </h2>
-          <div className="mt-10 rounded-3xl overflow-hidden shadow-card">
-            <img src={learnersImg} alt="Happy global learners from Google, Meta, Amazon, Microsoft" className="w-full h-auto" loading="lazy" width={1600} height={800} />
+          <div className="mt-12 space-y-6 overflow-hidden">
+            {/* Row 1 */}
+            <div className="flex animate-marquee whitespace-nowrap gap-4">
+              {[...learnerData, ...learnerData].map((learner, i) => (
+                <LearnerCard key={i} name={learner.name} image={learner.image} companyLogo={learner.logo} />
+              ))}
+            </div>
+            {/* Row 2 */}
+            <div className="flex animate-marquee-reverse whitespace-nowrap gap-4">
+              {[...learnerData, ...learnerData].map((learner, i) => (
+                <LearnerCard key={`r2-${i}`} name={learner.name} image={learner.image} companyLogo={learner.logo} />
+              ))}
+            </div>
           </div>
 
           <div className="mt-10 rounded-2xl bg-gradient-cta p-6 text-center text-white shadow-cta">
@@ -174,20 +329,37 @@ const Index = () => {
         </div>
       </section>
 
-      {/* TOOLS YOU'LL MASTER */}
-      <section id="benefits" className="py-16 md:py-20 bg-gradient-soft">
+      <section id="benefits" className="py-16 md:py-24 bg-gradient-soft overflow-hidden">
         <div className="container">
-          <h2 className="text-center text-3xl md:text-4xl font-extrabold mb-10">Learn 25+ AI Tools</h2>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-4 max-w-4xl mx-auto">
-            {[
-              "ChatGPT","Claude","Gemini","Midjourney","Canva AI","Notion AI",
-              "Zapier","Gamma","Perplexity","Copilot","ElevenLabs","Runway",
-              "HeyGen","D-ID","Tome","Descript","vidyo.ai","Synthesia"
-            ].map((t) => (
-              <div key={t} className="rounded-xl bg-card border border-border px-3 py-4 text-center text-sm font-semibold shadow-card hover:shadow-glow hover:-translate-y-1 transition">
-                {t}
-              </div>
-            ))}
+          <h2 className="text-center text-3xl md:text-5xl font-extrabold mb-16">Learn 25+ AI Tools</h2>
+          
+          <div className="max-w-6xl mx-auto space-y-8">
+            {/* Row 1 - Featured & Clear */}
+            <div className="flex flex-wrap justify-center gap-4 animate-fade-up">
+              {featuredTools.map((tool) => (
+                <div key={tool.name} className="flex-shrink-0 bg-white border border-border px-8 py-5 rounded-2xl shadow-card hover:shadow-glow hover:-translate-y-1 transition duration-300">
+                  {tool.logo}
+                </div>
+              ))}
+            </div>
+
+            {/* Row 2 - Slightly Blurred */}
+            <div className="flex flex-wrap justify-center gap-4 opacity-50 blur-[2px] select-none pointer-events-none">
+              {moreToolsRow1.map((tool) => (
+                <div key={tool} className="flex-shrink-0 bg-white/60 border border-border/50 px-8 py-4 rounded-xl shadow-sm italic font-medium">
+                  {tool}
+                </div>
+              ))}
+            </div>
+
+            {/* Row 3 - More Blurred / Fading Out */}
+            <div className="flex flex-wrap justify-center gap-4 opacity-20 blur-[5px] select-none pointer-events-none scale-95">
+              {moreToolsRow2.map((tool) => (
+                <div key={tool} className="flex-shrink-0 bg-white/40 border border-border/30 px-6 py-3 rounded-lg shadow-none">
+                  {tool}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -199,28 +371,32 @@ const Index = () => {
             Here's What You'll Learn in the<br />
             <span className="text-gradient-primary">2-Day AI Mastermind</span>
           </h2>
-          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { icon: Brain, title: "Understanding Generative AI & Prompt Engineering" },
-              { icon: Sparkles, title: "ChatGPT and 20+ AI Tools" },
-              { icon: Wand2, title: "Create AI-Powered Writing Assistants" },
-              { icon: Zap, title: "Automate Workflows with AI and No-Code Platforms" },
-              { icon: Layers, title: "Explore Image and Video Generation with AI" },
-              { icon: Globe, title: "Build Digital Products without Code" },
-              { icon: FileSpreadsheet, title: "Use AI for Data Analysis" },
-              { icon: Briefcase, title: "Content Creation Using AI" },
-              { icon: Trophy, title: "Become AI-Ready in Your Career" },
-            ].map((c, i) => (
-              <Card key={i} className="group p-5 bg-primary-soft border-primary/15 hover:shadow-glow hover:-translate-y-1 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="h-12 w-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center shrink-0 group-hover:scale-110 transition">
-                    <c.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="font-bold text-foreground leading-snug pt-1">{c.title}</h3>
-                </div>
-              </Card>
+          <Accordion type="single" collapsible className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-0">
+            {curriculumData.map((c, i) => (
+              <AccordionItem key={i} value={`item-${i}`} className="group border-0">
+                <Card className="overflow-hidden bg-primary-soft border-primary/15 hover:shadow-glow transition-all duration-300">
+                  <AccordionTrigger className="p-5 hover:no-underline [&[data-state=open]>div>div]:scale-110">
+                    <div className="flex items-start gap-4 text-left">
+                      <div className="h-12 w-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center shrink-0 transition-transform duration-300">
+                        <c.icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="font-bold text-foreground leading-snug pt-1 pr-4">{c.title}</h3>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 pb-5">
+                    <ul className="space-y-3">
+                      {c.details.map((detail, idx) => (
+                        <li key={idx} className="flex gap-2 text-sm text-foreground/80 leading-relaxed">
+                          <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                </Card>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
 
           {/* Bonuses */}
           <div className="mt-16">
@@ -298,33 +474,24 @@ const Index = () => {
       </section>
 
       {/* TESTIMONIALS */}
-      <section id="reviews" className="py-16 md:py-20 bg-gradient-soft">
+      <section id="reviews" className="py-16 md:py-24 bg-gradient-soft overflow-hidden">
         <div className="container">
-          <p className="text-center text-xs tracking-widest font-semibold text-muted-foreground">HEAR IT FROM THEM</p>
-          <h2 className="text-center text-3xl md:text-4xl font-extrabold mt-2">See what's possible here</h2>
-          <div className="mt-12 grid md:grid-cols-3 gap-5">
-            {[
-              { img: t1, name: "Tammy Norfolk", role: "CHRL, L&D Leader", text: "I recently participated in this Generative AI workshop. The session provided a solid introduction to GPT applications and went beyond simple Q&A to creating custom GPT integrations." },
-              { img: t2, name: "Alfredo Garcia", role: "Operations Manager", text: "Just wrapped up the AI workshop. The insights and hands-on learning were beyond valuable. In-depth discussions, practical sessions, engaging Q&A — highly recommended!" },
-              { img: t3, name: "Jason Sequeira", role: "Content Writer · Strategist", text: "GrowthSchool's mind-blowing workshop! Vaibhav explains very well, and it really blew my mind. A right mentor can drive you towards your goal." },
-            ].map((t, i) => (
-              <Card key={i} className="p-6 bg-card hover:shadow-glow transition">
-                <Quote className="h-8 w-8 text-primary/30" />
-                <p className="text-sm leading-relaxed mt-3 text-foreground/90">{t.text}</p>
-                <div className="flex items-center gap-3 mt-5 pt-5 border-t">
-                  <img src={t.img} alt={t.name} className="h-12 w-12 rounded-full object-cover" loading="lazy" />
-                  <div>
-                    <p className="font-bold text-sm">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.role}</p>
-                  </div>
-                  <Linkedin className="h-4 w-4 text-blue-600 ml-auto" />
-                </div>
-              </Card>
+          <p className="text-center text-xs tracking-widest font-semibold text-muted-foreground uppercase opacity-80">HEAR IT FROM THEM</p>
+          <h2 className="text-center text-3xl md:text-5xl font-extrabold mt-3">See what's possible here</h2>
+          
+          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {linkedInPosts.map((post, i) => (
+              <LinkedInPostCard key={i} {...post} />
             ))}
           </div>
-          <div className="flex justify-center gap-3 mt-8">
-            <button className="h-10 w-10 rounded-full bg-card border shadow-card flex items-center justify-center"><ChevronLeft className="h-5 w-5" /></button>
-            <button className="h-10 w-10 rounded-full bg-card border shadow-card flex items-center justify-center"><ChevronRight className="h-5 w-5" /></button>
+
+          <div className="flex justify-center gap-4 mt-12">
+            <button className="h-12 w-12 rounded-full bg-white border border-border shadow-sm flex items-center justify-center hover:bg-primary-soft hover:text-primary transition-colors cursor-pointer group">
+              <ChevronLeft className="h-6 w-6 group-active:scale-95" />
+            </button>
+            <button className="h-12 w-12 rounded-full bg-white border border-border shadow-sm flex items-center justify-center hover:bg-primary-soft hover:text-primary transition-colors cursor-pointer group">
+              <ChevronRight className="h-6 w-6 group-active:scale-95" />
+            </button>
           </div>
         </div>
       </section>
