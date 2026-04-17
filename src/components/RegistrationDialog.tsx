@@ -37,7 +37,7 @@ export const RegistrationDialog = ({ open, onOpenChange }: Props) => {
       return;
     }
     setLoading(true);
-    const { error } = await supabase.from("registrations").insert(parsed.data);
+    const { error } = await supabase.from("registrations").insert([parsed.data]);
     setLoading(false);
     if (error) {
       toast({ title: "Something went wrong", description: error.message, variant: "destructive" });
