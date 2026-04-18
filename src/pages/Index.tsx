@@ -9,7 +9,7 @@ import {
   Brain, Wand2, FileSpreadsheet, Globe, Briefcase, Zap,
   TrendingUp, DollarSign, Rocket, Target, Layers, Trophy,
   ChevronLeft, ChevronRight, Quote, Linkedin, Youtube, Instagram, Twitter,
-  ShieldCheck, Gift, Infinity as InfinityIcon, PlayCircle, Flame, Menu
+  ShieldCheck, Gift, Infinity as InfinityIcon, PlayCircle, Flame, Menu, ArrowRight, Palette
 } from "lucide-react";
 import { 
   Sheet, 
@@ -31,6 +31,7 @@ import t4 from "@/assets/t4.jpg";
 import certificate from "@/assets/certificate.png";
 import { LearnerCard } from "@/components/LearnerCard";
 import { LinkedInPostCard } from "@/components/LinkedInPostCard";
+import { applyMethod, modulesData, sessionsList, dayDetails } from "@/data/syllabus";
 
 const logos = {
   spotify: <div className="flex items-center gap-1 text-[#1DB954]"><div className="w-4 h-4 rounded-full bg-[#1DB954] flex items-center justify-center"><div className="w-2 h-0.5 bg-white rotate-45"></div></div>Spotify</div>,
@@ -169,6 +170,12 @@ const curriculumData = [
   },
 ];
 
+const CustomBadge = ({ icon, text, dark }: { icon?: React.ReactNode; text: string; dark?: boolean }) => (
+  <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-[10px] font-black uppercase tracking-widest ${dark ? "bg-secondary text-secondary-foreground" : "bg-primary-soft text-primary shadow-sm"}`}>
+    {icon} {text}
+  </div>
+);
+
 const Index = () => {
   const [open, setOpen] = useState(false);
   const join = () => setOpen(true);
@@ -250,21 +257,28 @@ const Index = () => {
         <div className="container relative grid lg:grid-cols-2 gap-12 items-center py-16 md:py-24">
           <div className="space-y-6 animate-fade-up">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-soft border border-primary/20 text-sm font-semibold text-primary">
-              <Flame className="h-4 w-4" /> Live 2-Day AI Workshop
+              <Sparkles className="h-4 w-4" /> 28-Day AI Mastery Plan
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 animate-up">
-              Master Generative AI <br />
-              <span className="text-gradient-primary">& Become Top 1%</span>
+              AI FROM <span className="text-secondary">ZERO</span> TO <span className="text-gradient-primary">HERO</span>
             </h1>
-            <p className="text-base sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-up delay-100 px-4">
-              Don't get left behind. Learn Chat GPT, Midjourney, and 25+ AI tools to automate your work & boost your productivity by 10x.
+            <p className="text-base sm:text-lg text-muted-foreground mb-10 max-w-2xl animate-up delay-100 italic">
+              A 28-Day Structured Teaching Plan designed for Grades 7-12. <br className="hidden md:block" />
+              Complete PPT Outlines · Zero Coding Required · All Free Tools.
             </p>
 
-            <div className="flex flex-wrap gap-3">
-              <Badge icon={<Calendar className="h-4 w-4" />} text="18th April · Saturday" dark />
-              <Badge icon={<Clock className="h-4 w-4" />} text="10 AM – 7 PM IST" dark />
-              <Badge icon={<Calendar className="h-4 w-4" />} text="19th April · Sunday" dark />
-              <Badge icon={<Clock className="h-4 w-4" />} text="10 AM – 7 PM IST" dark />
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { label: "28 Days", desc: "Structured Plan" },
+                { label: "15 Modules", desc: "Full Coverage" },
+                { label: "50+ Tools", desc: "All Free Tiers" },
+                { label: "Zero Code", desc: "Needed" }
+              ].map((stat, i) => (
+                <div key={i} className="bg-white/60 border border-border/50 rounded-2xl p-4 text-center backdrop-blur-sm">
+                  <p className="text-2xl font-black text-primary leading-tight">{stat.label}</p>
+                  <p className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">{stat.desc}</p>
+                </div>
+              ))}
             </div>
 
             <div className="flex flex-wrap gap-4 items-center pt-2">
@@ -335,7 +349,7 @@ const Index = () => {
       <section className="py-16 md:py-20 border-t border-border">
         <div className="container">
           <h2 className="text-center text-2xl md:text-3xl font-bold max-w-3xl mx-auto">
-            Join who have successfully completed the program to become an AI-powered professional <span className="text-gradient-primary">2 Million+ Global Learners</span>
+            Trusted by Educators and Professionals to master the future of work <span className="text-gradient-primary">2 Million+ Global Learners</span>
           </h2>
           <div className="mt-12 space-y-6 overflow-hidden">
             {/* Row 1 */}
@@ -344,18 +358,68 @@ const Index = () => {
                 <LearnerCard key={i} name={learner.name} image={learner.image} companyLogo={learner.logo} />
               ))}
             </div>
-            {/* Row 2 */}
-            <div className="flex animate-marquee-reverse whitespace-nowrap gap-4">
-              {[...learnerData, ...learnerData].map((learner, i) => (
-                <LearnerCard key={`r2-${i}`} name={learner.name} image={learner.image} companyLogo={learner.logo} />
-              ))}
-            </div>
           </div>
 
-          <div className="mt-10 rounded-2xl bg-gradient-cta p-6 text-center text-white shadow-cta">
-            <p className="font-bold tracking-wide mb-3">Featured In</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 text-xl font-bold opacity-90">
-              <span>yahoo!</span><span className="italic">Entrepreneur</span><span>TED<sup className="text-sm">x</sup></span><span className="font-serif">Forbes</span><span className="italic">The Statesman</span><span>BuzzFeed</span>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white/50 border border-border/50 rounded-[2.5rem] p-8 md:p-12">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] font-black text-primary mb-3">Teaching Approach</p>
+              <h3 className="text-3xl md:text-5xl font-black tracking-tight mb-6">The <span className="text-gradient-primary">APPLY</span> Method</h3>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                Every session is built on a proven pedagogical framework that ensures students don't just "watch" AI — they **master** it through active creation.
+              </p>
+              <div className="space-y-4">
+                {applyMethod.map((m, i) => (
+                  <div key={i} className="flex gap-4 items-start group">
+                    <div className={`h-12 w-12 rounded-xl ${m.color} text-white flex items-center justify-center shrink-0 font-black text-xl shadow-lg transition-transform group-hover:scale-110`}>
+                      {m.letter}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg leading-tight">{m.title}</h4>
+                      <p className="text-sm text-muted-foreground">{m.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-6">
+              <div className="bg-secondary text-secondary-foreground rounded-3xl p-8 shadow-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full" />
+                <h4 className="text-2xl font-extrabold mb-4 relative z-10 italic">How to use this plan</h4>
+                <ul className="space-y-4 relative z-10">
+                  <li className="flex gap-3 items-start">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                    <p className="text-sm"><b>Structure of Each Day:</b> Objectives, Topics, PPT Breakdown, Classroom Activity, and Homework.</p>
+                  </li>
+                  <li className="flex gap-3 items-start">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                    <p className="text-sm"><b>PPT Colour Legend:</b> Use Navy for concepts, Orange for activities, and Green for takeaways.</p>
+                  </li>
+                  <li className="flex gap-3 items-start">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                    <p className="text-sm"><b>Teacher Tips:</b> Expert delivery advice provided for every single session.</p>
+                  </li>
+                </ul>
+                <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+                  <div className="flex gap-2">
+                    <div className="w-8 h-8 rounded bg-blue-900 border border-white/20" />
+                    <div className="w-8 h-8 rounded bg-orange-600 border border-white/20" />
+                    <div className="w-8 h-8 rounded bg-green-700 border border-white/20" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest opacity-60">PPT Style Guide</span>
+                </div>
+              </div>
+              <Card className="bg-primary p-8 text-white rounded-3xl shadow-glow overflow-hidden relative">
+                <div className="absolute top-0 right-0 p-4 opacity-10">
+                  <Globe className="w-24 h-24" />
+                </div>
+                <h4 className="text-2xl font-black mb-2">Multi-Tool Mastery</h4>
+                <p className="text-primary-foreground/90 text-sm mb-6">Designed to work with all major free AI platforms.</p>
+                <div className="flex flex-wrap gap-2">
+                  {["ChatGPT", "Claude", "Gemini", "Canva", "ElevenLabs"].map(t => (
+                    <span key={t} className="px-3 py-1 bg-white/20 rounded-full text-[10px] font-bold uppercase tracking-wider">{t}</span>
+                  ))}
+                </div>
+              </Card>
             </div>
           </div>
         </div>
@@ -363,7 +427,7 @@ const Index = () => {
 
       <section id="benefits" className="py-16 md:py-24 bg-gradient-soft overflow-hidden">
         <div className="container">
-          <h2 className="text-center text-3xl md:text-5xl font-extrabold mb-16">Learn 25+ AI Tools</h2>
+          <h2 className="text-center text-3xl md:text-5xl font-extrabold mb-16 italic">Learn <span className="text-gradient-primary">50+ AI Tools</span> In 28 Days</h2>
           
           <div className="max-w-6xl mx-auto space-y-8">
             {/* Row 1 - Featured & Clear */}
@@ -396,62 +460,145 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CURRICULUM */}
-      <section id="curriculum" className="py-16 md:py-24">
+      {/* CURRICULUM OVERVIEW */}
+      <section id="curriculum" className="py-20 bg-white relative overflow-hidden">
         <div className="container">
-          <h2 className="text-center text-3xl md:text-4xl font-extrabold">
-            Here's What You'll Learn in the<br />
-            <span className="text-gradient-primary">2-Day AI Mastermind</span>
-          </h2>
-          <Accordion type="single" collapsible className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-0">
-            {curriculumData.map((c, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="group border-0">
-                <Card className="overflow-hidden bg-primary-soft border-primary/15 hover:shadow-glow transition-all duration-300">
-                  <AccordionTrigger className="p-5 hover:no-underline [&[data-state=open]>div>div]:scale-110">
-                    <div className="flex items-start gap-4 text-left">
-                      <div className="h-12 w-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center shrink-0 transition-transform duration-300">
-                        <c.icon className="h-6 w-6" />
-                      </div>
-                      <h3 className="font-bold text-foreground leading-snug pt-1 pr-4">{c.title}</h3>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-5 pb-5">
-                    <ul className="space-y-3">
-                      {c.details.map((detail, idx) => (
-                        <li key={idx} className="flex gap-2 text-sm text-foreground/80 leading-relaxed">
-                          <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                          {detail}
-                        </li>
-                      ))}
-                    </ul>
-                  </AccordionContent>
-                </Card>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">The <span className="text-gradient-primary">28-Day</span> Mastery Road</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto italic font-medium">From fundamental concepts to sophisticated AI workflows in four transformative weeks.</p>
+          </div>
 
-          {/* Bonuses */}
-          <div className="mt-16">
-            <h3 className="text-center text-2xl md:text-3xl font-bold">
-              And Also Enjoy <span className="text-gradient-primary">Bonuses Worth ₹5000 for FREE!</span>
-            </h3>
-            <div className="mt-8 grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+          <div className="grid lg:grid-cols-5 gap-12">
+            <div className="lg:col-span-3">
+              <div className="bg-white border border-border/60 rounded-3xl shadow-xl overflow-hidden animate-fade-in">
+                <div className="bg-secondary/50 px-6 py-4 border-b border-border/60 flex justify-between items-center">
+                  <h3 className="font-bold flex items-center gap-2">
+                    <Calendar className="h-4 w-4 text-primary" /> Full 28-Day Schedule
+                  </h3>
+                  <CustomBadge text="15 Modules · 28 Sessions" />
+                </div>
+                <div className="max-h-[650px] overflow-y-auto scrollbar-thin scrollbar-thumb-primary/20">
+                  <table className="w-full text-left border-collapse">
+                    <thead className="sticky top-0 bg-white shadow-sm z-10">
+                      <tr className="border-b border-border/40">
+                        <th className="px-6 py-4 text-xs font-black uppercase tracking-widest text-muted-foreground/60">Day</th>
+                        <th className="px-6 py-4 text-xs font-black uppercase tracking-widest text-muted-foreground/60">Session Title</th>
+                        <th className="px-6 py-4 text-xs font-black uppercase tracking-widest text-muted-foreground/60">Module</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {sessionsList.map((session, idx) => (
+                        <tr key={idx} className="border-b border-border/30 hover:bg-primary-soft/30 transition-colors group">
+                          <td className="px-6 py-4 font-black text-primary/40 group-hover:text-primary transition-colors">{session.day}</td>
+                          <td className="px-6 py-4 font-bold text-sm leading-tight">{session.title}</td>
+                          <td className="px-6 py-4">
+                            <span className="text-[9px] font-black tracking-tighter bg-secondary text-secondary-foreground px-2 py-1 rounded-md whitespace-nowrap">{session.module}</span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-2 space-y-8">
+              <div>
+                <h3 className="text-2xl font-black mb-6 flex items-center gap-2">
+                  <Layers className="text-primary h-6 w-6" /> Week 1 Deep Dive
+                </h3>
+                <div className="space-y-4">
+                  {dayDetails.map((detail, idx) => (
+                    <Accordion key={idx} type="single" collapsible>
+                      <AccordionItem value={`item-${idx}`} className="border border-border/50 rounded-2xl px-4 bg-secondary/15 overflow-hidden transition-all hover:bg-secondary/25">
+                        <AccordionTrigger className="hover:no-underline py-4">
+                          <div className="flex items-center gap-4 text-left">
+                            <div className="h-10 w-10 rounded-xl bg-white border border-border/60 flex items-center justify-center font-black text-primary shadow-sm shrink-0">
+                              {detail.day}
+                            </div>
+                            <div>
+                              <p className="text-[10px] font-bold text-primary/60 uppercase tracking-widest leading-none mb-1">{detail.module}</p>
+                              <p className="font-extrabold leading-tight">{detail.title}</p>
+                            </div>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="pb-6">
+                          <div className="space-y-5 pt-2">
+                            <div>
+                              <p className="text-[10px] font-black uppercase tracking-widest mb-3 text-secondary-foreground/60 flex items-center gap-2">
+                                <ShieldCheck className="h-3 w-3" /> Learning Objectives
+                              </p>
+                              <ul className="grid grid-cols-1 gap-2">
+                                {detail.objectives.map((obj, i) => (
+                                  <li key={i} className="text-xs flex gap-2 items-start font-medium text-foreground/80">
+                                    <div className="h-1.5 w-1.5 rounded-full bg-primary mt-1 shrink-0" />
+                                    <span>{obj}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div className="p-4 bg-white/60 rounded-xl border border-border/50">
+                              <p className="text-[10px] font-black uppercase tracking-widest mb-3 text-secondary-foreground/60">Topics To Cover</p>
+                              <div className="flex flex-wrap gap-2">
+                                {detail.topics.map((topic, i) => (
+                                  <span key={i} className="text-[9px] font-bold bg-white text-foreground/70 border border-border/60 px-2 py-1 rounded shadow-sm">
+                                    {topic}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-primary p-8 rounded-[2.5rem] text-white shadow-glow relative overflow-hidden group">
+                <div className="absolute -right-4 -bottom-4 opacity-10 transition-transform group-hover:scale-110">
+                  <Sparkles size={120} />
+                </div>
+                <div className="relative z-10">
+                  <h4 className="text-2xl font-black mb-2 italic">Teacher Outlines Included</h4>
+                  <p className="text-sm text-primary-foreground/80 mb-6 font-medium">Get full access to the 28-day PPTs, activity guides, and expert delivery tips.</p>
+                  <RegistrationDialog trigger={
+                    <Button variant="secondary" size="lg" className="w-full font-black text-primary shadow-xl hover:scale-105 transition-transform py-7 text-lg rounded-2xl">
+                      Get The Full Access <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  } />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-20">
+            <div className="text-center mb-10">
+              <h3 className="text-2xl md:text-3xl font-black italic">And Also Get <span className="text-gradient-primary">Teacher-Ready Bonuses</span></h3>
+              <p className="text-muted-foreground mt-2">Everything you need to deliver high-impact AI sessions immediately.</p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
               {[
-                "List of Gold-Standard and Hidden Prompts for GPT-4",
-                "Copy-Paste Templates for All-in-One AI Tools like Simplified",
-                "Step-by-Step Method to Code a Website with 0 prior tech knowledge",
-                "Create AI-generated personas that give you support of 10 humans using Synthesia",
+                { title: "Full PPT Outlines", desc: "For every single session across all 28 days.", icon: Palette },
+                { title: "Free Tool Directory", desc: "Access 50+ tools with zero-cost accounts.", icon: Zap },
+                { title: "Classroom Activities", desc: "Hands-on exercises designed for engagement.", icon: Sparkles },
+                { title: "Teacher Tips", desc: "Expert delivery advice for every session.", icon: Briefcase }
               ].map((b, i) => (
-                <div key={i} className="rounded-2xl bg-secondary text-secondary-foreground p-5 flex gap-4 items-start shadow-card">
-                  <span className="text-3xl font-extrabold opacity-70">{i + 1}</span>
-                  <p className="font-semibold leading-snug pt-1">{b}</p>
+                <div key={i} className="rounded-3xl bg-secondary/30 border border-border/40 p-6 shadow-sm hover:shadow-md transition">
+                  <div className="h-12 w-12 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary mb-4">
+                    <b.icon className="h-6 w-6" />
+                  </div>
+                  <h4 className="font-extrabold text-lg mb-1 leading-tight">{b.title}</h4>
+                  <p className="text-xs text-muted-foreground font-medium">{b.desc}</p>
                 </div>
               ))}
             </div>
-            <div className="text-center mt-8">
-              <Button onClick={join} size="lg" className="bg-gradient-cta shadow-cta animate-pulse-glow text-white rounded-full px-10 h-14">
-                Join Now
-              </Button>
+            <div className="text-center mt-12">
+              <RegistrationDialog trigger={
+                <Button onClick={join} size="xl" className="bg-gradient-primary text-white rounded-full px-12 group h-16 text-lg font-black shadow-lg">
+                  Start Your 28-Day Journey <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              } />
             </div>
           </div>
         </div>
@@ -460,7 +607,7 @@ const Index = () => {
       {/* WHY JOIN */}
       <section className="py-16 md:py-20 bg-gradient-soft">
         <div className="container">
-          <h2 className="text-center text-3xl md:text-4xl font-extrabold mb-12">Why Join This Workshop</h2>
+          <h2 className="text-center text-3xl md:text-4xl font-extrabold mb-12 italic">Why This <span className="text-gradient-primary">28-Day Plan?</span></h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               { icon: Clock, title: "Save 10+ hours every week", desc: "Automate repetitive work and focus on what matters." },
@@ -695,10 +842,5 @@ const Index = () => {
   );
 };
 
-const Badge = ({ icon, text, dark }: { icon: React.ReactNode; text: string; dark?: boolean }) => (
-  <div className={`inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-semibold ${dark ? "bg-secondary text-secondary-foreground" : "bg-primary-soft text-primary"}`}>
-    {icon} {text}
-  </div>
-);
 
 export default Index;
