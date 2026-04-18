@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { z } from "zod";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -15,11 +15,23 @@ const schema = z.object({
 });
 
 interface Props {
-  open: boolean;
-  onOpenChange: (o: boolean) => void;
+  open?: boolean;
+  onOpenChange?: (o: boolean) => void;
+  trigger?: React.ReactNode;
 }
 
-export const RegistrationDialog = ({ open, onOpenChange }: Props) => {
+export const RegistrationDialog = ({ open: controlledOpen, onOpenChange: setControlledOpen, trigger }: Props) => {
+  const [internalOpen, setInternalOpen] = useState(false);
+  const isControlled = controlledOpen !== undefined;
+  
+  const open = isControlled ? controlledOpen : internalOpen;
+  const onOpenChange = (o: boolean) => {
+    if (isControlled && setControlledOpen) {
+      setControlledOpen(o);
+    } else {
+      setInternalOpen(o);
+    }
+  };
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
@@ -57,6 +69,7 @@ export const RegistrationDialog = ({ open, onOpenChange }: Props) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
+      {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
       <DialogContent className="sm:max-w-md w-[92%] rounded-2xl p-0 overflow-hidden border-none shadow-2xl">
         <div className="bg-white p-6 sm:p-8">
           {done ? (
@@ -66,7 +79,7 @@ export const RegistrationDialog = ({ open, onOpenChange }: Props) => {
               </div>
               <div className="space-y-2">
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">You're in!</h3>
-                <p className="text-muted-foreground text-sm sm:text-base max-w-[240px]">We've sent the workshop details to your email.</p>
+                <p className="text-muted-foreground text-sm sm:text-base max-w-[240px]">We've sent the 28-day plan details to your email.</p>
               </div>
             </div>
           ) : (
