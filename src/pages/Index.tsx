@@ -2,25 +2,32 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { RegistrationDialog } from "@/components/RegistrationDialog";
 import {
   Star, Calendar, Clock, Sparkles, Award, Users, Check, Play,
   Brain, Wand2, FileSpreadsheet, Globe, Briefcase, Zap,
   TrendingUp, DollarSign, Rocket, Target, Layers, Trophy,
   ChevronLeft, ChevronRight, Quote, Linkedin, Youtube, Instagram, Twitter,
-  ShieldCheck, Gift, Infinity as InfinityIcon, PlayCircle, Flame
+  ShieldCheck, Gift, Infinity as InfinityIcon, PlayCircle, Flame, Menu
 } from "lucide-react";
+import { 
+  Sheet, 
+  SheetContent, 
+  SheetHeader, 
+  SheetTitle, 
+  SheetTrigger 
+} from "@/components/ui/sheet";
 import heroImg from "@/assets/hero-mentor.jpg";
 import mentorImg from "@/assets/mentor.jpg";
-import learnersImg from "@/assets/learners.jpg";
-import t1 from "@/assets/t1.jpg";
-import t2 from "@/assets/t2.jpg";
-import t3 from "@/assets/t3.jpg";
-import t4 from "@/assets/t4.jpg";
 import l1 from "@/assets/l1.png";
 import l2 from "@/assets/l2.png";
 import l3 from "@/assets/l3.png";
 import l4 from "@/assets/l4.png";
+import t1 from "@/assets/t1.jpg";
+import t2 from "@/assets/t2.jpg";
+import t3 from "@/assets/t3.jpg";
+import t4 from "@/assets/t4.jpg";
 import certificate from "@/assets/certificate.png";
 import { LearnerCard } from "@/components/LearnerCard";
 import { LinkedInPostCard } from "@/components/LinkedInPostCard";
@@ -189,26 +196,50 @@ const Index = () => {
 
       {/* Header */}
       <header className="sticky top-0 z-40 backdrop-blur-md bg-background/85 border-b border-border">
-        <div className="container flex h-16 items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-xl bg-gradient-cta flex items-center justify-center shadow-cta">
-              <Sparkles className="h-5 w-5 text-primary-foreground" />
+        <div className="container flex items-center justify-between h-16 md:h-20 px-4">
+          <div className="flex items-center gap-2">
+            <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
+              <Sparkles className="h-5 w-5 text-primary-foreground fill-primary-foreground" />
             </div>
-            <span className="font-extrabold text-lg tracking-tight">AI Mastery</span>
-            <span className="hidden sm:inline-flex ml-2 px-2 py-0.5 text-xs font-semibold rounded-md bg-secondary text-secondary-foreground">
-              <Linkedin className="h-3 w-3 mr-1" /> Top Workshop 2026
-            </span>
-          </a>
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-muted-foreground">
-            <a href="#benefits" className="hover:text-foreground transition">Benefits</a>
-            <a href="#curriculum" className="hover:text-foreground transition">Curriculum</a>
-            <a href="#mentor" className="hover:text-foreground transition">Mentor</a>
-            <a href="#reviews" className="hover:text-foreground transition">Reviews</a>
-            <a href="#faq" className="hover:text-foreground transition">FAQ</a>
+            <span className="font-extrabold text-xl tracking-tight">AI Mastery</span>
+            <Badge variant="secondary" className="ml-2 hidden lg:flex items-center gap-1.5 bg-secondary/50 text-[10px] py-0 px-2 border-none font-bold">
+              <TrendingUp className="h-3 w-3" /> Top Workshop 2026
+            </Badge>
+          </div>
+          
+          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-muted-foreground">
+            {["Benefits", "Curriculum", "Mentor", "Reviews", "FAQ"].map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-primary transition-colors">{item}</a>
+            ))}
           </nav>
-          <Button onClick={join} className="bg-gradient-cta shadow-cta hover:opacity-95 text-white rounded-full px-5">
-            Join Now
-          </Button>
+
+          <div className="flex items-center gap-2">
+            <Button onClick={join} className="hidden sm:flex rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-6 font-bold shadow-lg shadow-primary/20">
+              Join Now
+            </Button>
+            
+            {/* Mobile Menu */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <SheetHeader>
+                  <SheetTitle className="text-left font-extrabold text-xl">AI Mastery</SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-col gap-6 mt-8">
+                  {["Benefits", "Curriculum", "Mentor", "Reviews", "FAQ"].map((item) => (
+                    <a key={item} href={`#${item.toLowerCase()}`} className="text-lg font-bold text-muted-foreground hover:text-primary transition-colors border-b pb-2">{item}</a>
+                  ))}
+                  <Button onClick={join} className="w-full rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg font-extrabold shadow-lg shadow-primary/20 mt-4">
+                    Join Now
+                  </Button>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </header>
 
@@ -221,11 +252,12 @@ const Index = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-soft border border-primary/20 text-sm font-semibold text-primary">
               <Flame className="h-4 w-4" /> Live 2-Day AI Workshop
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
-              Learn <span className="text-gradient-primary">25+ AI Tools</span> to Save Time, Money, and Supercharge Your Skills.
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 animate-up">
+              Master Generative AI <br />
+              <span className="text-gradient-primary">& Become Top 1%</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-xl">
-              This hands-on <span className="text-primary font-semibold">AI workshop</span> transforms you into an AI power user who can build automated workflows, create professional content in minutes, and launch AI-powered apps — giving you the competitive edge that makes you irreplaceable in any industry.
+            <p className="text-base sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-up delay-100 px-4">
+              Don't get left behind. Learn Chat GPT, Midjourney, and 25+ AI tools to automate your work & boost your productivity by 10x.
             </p>
 
             <div className="flex flex-wrap gap-3">

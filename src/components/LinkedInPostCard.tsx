@@ -28,16 +28,16 @@ export const LinkedInPostCard = ({
   comments
 }: LinkedInPostCardProps) => {
   return (
-    <Card className="flex flex-col bg-white border border-border/60 shadow-sm overflow-hidden text-left h-full max-w-[340px] mx-auto">
+    <Card className="flex flex-col bg-white border border-border/60 shadow-sm overflow-hidden text-left h-full max-w-full sm:max-w-[340px] mx-auto">
       {/* Header */}
       <div className="p-2.5 pb-0 flex items-start gap-2 relative">
         <img src={avatar} alt={name} className="h-10 w-10 rounded-full object-cover shrink-0" />
-        <div className="flex-1 min-w-0 pr-14">
-          <div className="flex items-center gap-1">
-            <h4 className="font-bold text-[13px] text-[#191919] truncate">{name}</h4>
+        <div className="flex-1 min-w-0 pr-10 sm:pr-14">
+          <div className="flex flex-wrap items-baseline gap-x-1">
+            <h4 className="font-bold text-[13px] text-[#191919] truncate max-w-[120px] sm:max-w-none">{name}</h4>
             <span className="text-[10px] text-muted-foreground shrink-0">• {connectionLevel}</span>
           </div>
-          <p className="text-[11px] text-muted-foreground leading-tight line-clamp-1">{headline}</p>
+          <p className="text-[10px] sm:text-[11px] text-muted-foreground leading-tight line-clamp-1">{headline}</p>
           <div className="flex items-center gap-1 text-[10px] text-muted-foreground mt-0.5">
             <span>{timestamp}</span>
             <span>•</span>
@@ -45,7 +45,7 @@ export const LinkedInPostCard = ({
           </div>
         </div>
         <div className="absolute top-2.5 right-2 flex items-center gap-1">
-          <Button variant="ghost" size="sm" className="h-7 text-[#0a66c2] hover:bg-[#ebf4fe] flex items-center gap-0.5 font-bold px-1.5 text-[11px]">
+          <Button variant="ghost" size="sm" className="h-7 text-[#0a66c2] hover:bg-[#ebf4fe] flex items-center gap-0.5 font-bold px-1.5 text-[10px] sm:text-[11px]">
             <Plus className="h-3 w-3" /> Follow
           </Button>
         </div>
