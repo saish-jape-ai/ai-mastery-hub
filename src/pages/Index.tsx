@@ -595,7 +595,7 @@ const Index = () => {
             </div>
             <div className="text-center mt-12">
               <RegistrationDialog trigger={
-                <Button onClick={join} size="xl" className="bg-gradient-primary text-white rounded-full px-12 group h-16 text-lg font-black shadow-lg">
+                <Button onClick={join} size="lg" className="bg-gradient-primary text-white rounded-full px-12 group h-16 text-lg font-black shadow-lg">
                   Start Your 26-Day Journey <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               } />
