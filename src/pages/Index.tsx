@@ -11,83 +11,81 @@ import {
   ChevronLeft, ChevronRight, Quote, Linkedin, Youtube, Instagram, Twitter,
   ShieldCheck, Gift, Infinity as InfinityIcon, PlayCircle, Flame, Menu, ArrowRight, Palette
 } from "lucide-react";
-import { 
-  Sheet, 
-  SheetContent, 
-  SheetHeader, 
-  SheetTitle, 
-  SheetTrigger 
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger
 } from "@/components/ui/sheet";
 import heroImg from "@/assets/hero-mentor.jpg";
 import mentorImg from "@/assets/mentor.jpg";
-import l1 from "@/assets/l1.png";
-import l2 from "@/assets/l2.png";
-import l3 from "@/assets/l3.png";
-import l4 from "@/assets/l4.png";
-import t1 from "@/assets/t1.jpg";
-import t2 from "@/assets/t2.jpg";
-import t3 from "@/assets/t3.jpg";
-import t4 from "@/assets/t4.jpg";
+import gotaker from "@/assets/gotaker.png";
+import jadish from "@/assets/jadish.png";
+import mahi from "@/assets/mahi.png";
+import prathamesh from "@/assets/prathamesh.png";
+import sahil from "@/assets/sahil.png";
+import saish from "@/assets/saish.png";
+import sharad from "@/assets/sharad.png";
+import sanika from "@/assets/sanika.png";
+import jay from "@/assets/jay.png";
+import rushi from "@/assets/rushi.png";
+import rahul from "@/assets/rahul.png";
+import ashu from "@/assets/ashu.png";
+import raosir from "@/assets/raosir.mp4";
 import certificate from "@/assets/certificate.png";
 import { LearnerCard } from "@/components/LearnerCard";
 import { LinkedInPostCard } from "@/components/LinkedInPostCard";
 import { applyMethod, modulesData, sessionsList, dayDetails } from "@/data/syllabus";
 
-const logos = {
-  spotify: <div className="flex items-center gap-1 text-[#1DB954]"><div className="w-4 h-4 rounded-full bg-[#1DB954] flex items-center justify-center"><div className="w-2 h-0.5 bg-white rotate-45"></div></div>Spotify</div>,
-  google: <div className="flex items-center gap-1"><span className="text-[#4285F4]">G</span><span className="text-[#EA4335]">o</span><span className="text-[#FBBC05]">o</span><span className="text-[#4285F4]">g</span><span className="text-[#34A853]">l</span><span className="text-[#EA4335]">e</span></div>,
-  meta: <div className="text-[#0668E1] font-bold">Meta</div>,
-  amazon: <div className="font-extrabold italic text-[#FF9900]">amazon</div>,
-  canva: <div className="text-[#00C4CC] font-bold">Canva</div>,
-  salesforce: <div className="text-[#00A1E0] font-bold italic">salesforce</div>,
-  microsoft: <div className="flex gap-0.5"><div className="grid grid-cols-2 gap-0.5"><div className="w-1.5 h-1.5 bg-[#F25022]"></div><div className="w-1.5 h-1.5 bg-[#7FBA00]"></div><div className="w-1.5 h-1.5 bg-[#00A1F1]"></div><div className="w-1.5 h-1.5 bg-[#FFB900]"></div></div>Microsoft</div>
-};
-
 const learnerData = [
-  { name: "John", image: l1, logo: logos.spotify },
-  { name: "Sarah", image: l2, logo: logos.google },
-  { name: "Mike", image: l3, logo: logos.meta },
-  { name: "Elena", image: l4, logo: logos.amazon },
-  { name: "Alex", image: t1, logo: logos.canva },
-  { name: "Priya", image: t2, logo: logos.salesforce },
-  { name: "David", image: t3, logo: logos.microsoft },
-  { name: "Emma", image: t4, logo: logos.google },
-  { name: "Chris", image: l1, logo: logos.meta },
-  { name: "Anita", image: l2, logo: logos.spotify },
+  { name: "Saish Jape", image: saish },
+  { name: "Sahil Wable", image: sahil },
+  { name: "Sharad Waje", image: sharad },
+  { name: "Jadish", image: jadish },
+  { name: "Mahi", image: mahi },
+  { name: "Prathamesh", image: prathamesh },
+  { name: "Gotaker", image: gotaker },
+  { name: "Sanika", image: sanika },
+  { name: "Jay", image: jay },
+  { name: "Rushi", image: rushi },
+  { name: "Rahul", image: rahul },
+  { name: "Ashu", image: ashu },
+  { name: "rushi", image: rushi },
 ];
 
 const linkedInPosts = [
   {
-    name: "Tammy Norfolk CHRL",
-    avatar: t1,
+    name: "Ashutosh Gadekar",
+    avatar: ashu,
     connectionLevel: "2nd+",
     headline: "Strategic Learning and Development Leader | Talent...",
     timestamp: "1w",
-    content: "I recently participated in a Generative AI workshop offered by AI Mastery, focusing on how ChatGPT integrates with other GPT applications. This session provided a solid introduction to the capabilities of Generative AI, extending beyond simple Q&A interactions to include creating custom GPT models.\n\nA key insight for me was seeing the diverse applications of these technologies and understanding their potential beyond simple text generation. The workshop used practical examples to demonstrate how Generative AI can be used in various contexts.",
+    content: "I recently participated in a Generative AI workshop offered by BAAP Academy, focusing on how ChatGPT integrates with other GPT applications. This session provided a solid introduction to the capabilities of Generative AI, extending beyond simple Q&A interactions to include creating custom GPT models.\n\nA key insight for me was seeing the diverse applications of these technologies and understanding their potential beyond simple text generation. The workshop used practical examples to demonstrate how Generative AI can be used in various contexts.",
     hashtags: ["GenerativeAI", "AI", "ChatGPT", "Technology", "Learning", "AIMastery"],
     image: certificate,
     likes: 24,
     comments: 1
   },
   {
-    name: "Alfredo Garcia Quevedo",
-    avatar: t2,
+    name: "Sahil Wable",
+    avatar: sahil,
     connectionLevel: "3rd+",
     headline: "Encargado de Costos en Empacadora del Golfo SA d...",
     timestamp: "2w",
-    content: "Just wrapped up the Generative AI workshop and had to share my thoughts!\n\nRecently attended the Generative AI workshop, and it was an incredible experience!\nThe insights gained and hands-on learning were beyond valuable. Big thanks to Vaibhav and the AI Mastery team for organizing such an insightful event.\n\nHighlights:\n- In-depth discussions on the latest trends in Generative AI.\n- Practical sessions that demystified complex concepts.\n- Engaging Q&A sessions that added immense value.",
+    content: "Just wrapped up the Generative AI workshop and had to share my thoughts!\n\nRecently attended the Generative AI workshop, and it was an incredible experience!\nThe insights gained and hands-on learning were beyond valuable. Big thanks to Vaibhav and the BAAP Academy team for organizing such an insightful event.\n\nHighlights:\n- In-depth discussions on the latest trends in Generative AI.\n- Practical sessions that demystified complex concepts.\n- Engaging Q&A sessions that added immense value.",
     hashtags: ["GenerativeAI", "AI Workshop", "LearningExperience"],
     image: certificate,
     likes: 42,
     comments: 5
   },
   {
-    name: "Jason Sequeira",
-    avatar: t3,
+    name: "Rushikesh Lodhe",
+    avatar: rushi,
     connectionLevel: "2nd",
     headline: "Content Writer | Copywriter | SEO | Content Strategy...",
     timestamp: "4d",
-    content: "AI Mastery's mind blowing workshop! It was amazing to know about ChatGPT & Generative AI. Vaibhav explains very well, that it really blew my mind.\n\nI think more than just the content what I really loved about Vaibhav is his passion to help students, a right mentor can drive you towards your goal.",
+    content: "BAAP Academy's mind blowing workshop! It was amazing to know about ChatGPT & Generative AI. Vaibhav explains very well, that it really blew my mind.\n\nI think more than just the content what I really loved about Vaibhav is his passion to help students, a right mentor can drive you towards your goal.",
     hashtags: ["ai", "content", "learning"],
     image: certificate,
     likes: 38,
@@ -99,7 +97,7 @@ const featuredTools = [
   { name: "descript", logo: <div className="flex items-center gap-2 font-bold text-[#00A3FF]"><div className="w-6 h-6 flex flex-col gap-0.5"><div className="w-full h-1.5 bg-[#00A3FF]"></div><div className="w-3/4 h-1.5 bg-[#00A3FF]"></div><div className="w-full h-1.5 bg-[#00A3FF]"></div></div>descript</div> },
   { name: "HeyGen", logo: <div className="flex items-center gap-2 font-bold"><div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-purple-500 via-pink-500 to-orange-500"></div>HeyGen</div> },
   { name: "tome", logo: <div className="flex items-center gap-2 font-bold"><div className="w-6 h-6 rounded-full border-4 border-[#FF00FF]"></div>tome</div> },
-  { name: "ChatGPT", logo: <div className="flex items-center gap-2 font-bold text-[#10A37F] font-mono"><Sparkles className="h-5 w-5 fill-[#10A37F] text-[#10A37F]"/> ChatGPT</div> },
+  { name: "ChatGPT", logo: <div className="flex items-center gap-2 font-bold text-[#10A37F] font-mono"><Sparkles className="h-5 w-5 fill-[#10A37F] text-[#10A37F]" /> ChatGPT</div> },
   { name: "D-ID", logo: <div className="flex items-center gap-2 font-black italic tracking-tighter">D-ID<span className="text-orange-500 text-2xl font-normal">{"}"}</span></div> },
   { name: "vidyo.ai", logo: <div className="flex items-center gap-2 font-bold"><div className="w-6 h-6 flex items-center justify-center"><div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-[#7000FF] border-b-[8px] border-b-transparent"></div></div>vidyo.ai</div> },
 ];
@@ -108,8 +106,8 @@ const moreToolsRow1 = ["Claude", "Midjourney", "Canva AI", "Notion AI", "Zapier"
 const moreToolsRow2 = ["Perplexity", "Copilot", "ElevenLabs", "Runway", "Synthesia", "Firefly"];
 
 const curriculumData = [
-  { 
-    icon: Brain, 
+  {
+    icon: Brain,
     title: "Understanding Generative AI & Prompt Engineering",
     details: [
       "Gain a deep, working knowledge of how generative AI models like ChatGPT, Claude, and Gemini function.",
@@ -118,8 +116,8 @@ const curriculumData = [
       "Walk away with practical skills to leverage AI for a variety of tasks and business needs."
     ]
   },
-  { 
-    icon: Sparkles, 
+  {
+    icon: Sparkles,
     title: "ChatGPT and 20+ AI Tools",
     details: [
       "Mastering ChatGPT for advanced business automation and complex problem solving.",
@@ -128,8 +126,8 @@ const curriculumData = [
       "Daily productivity transformation with Notion AI, Microsoft Copilot, and Google Gemini."
     ]
   },
-  { 
-    icon: Wand2, 
+  {
+    icon: Wand2,
     title: "Create AI-Powered Writing Assistants",
     details: [
       "Building and training custom GPTs tailored to your unique business writing style.",
@@ -138,8 +136,8 @@ const curriculumData = [
       "Rapidly summarizing long documents and extracting key insights with AI."
     ]
   },
-  { 
-    icon: Zap, 
+  {
+    icon: Zap,
     title: "Automate Workflows with AI and No-Code Platforms",
     details: [
       "Integrating ChatGPT with Zapier and Make.com to build autonomous workflows.",
@@ -148,8 +146,8 @@ const curriculumData = [
       "Eliminating repetitive data entry tasks using smart AI automation."
     ]
   },
-  { 
-    icon: Layers, 
+  {
+    icon: Layers,
     title: "Explore Image and Video Generation with AI",
     details: [
       "Mastering text-to-video and video-to-video transformations with Runway Gen-2.",
@@ -158,8 +156,8 @@ const curriculumData = [
       "Cinematic image creation and prompt-based art direction."
     ]
   },
-  { 
-    icon: Globe, 
+  {
+    icon: Globe,
     title: "Build Digital Products without Code",
     details: [
       "Generating complete, high-converting landing pages in minutes using AI tools.",
@@ -194,7 +192,7 @@ const Index = () => {
         <div className="flex animate-marquee whitespace-nowrap py-2 text-sm font-bold">
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i} className="mx-6 inline-flex items-center gap-2">
-              <Star className="h-4 w-4 fill-current" /> Flat 90% Off
+              <Star className="h-4 w-4 fill-current" /> Flat 48% Off
               <Star className="h-4 w-4 fill-current ml-6" /> Limited Period Offer
             </span>
           ))}
@@ -208,12 +206,12 @@ const Index = () => {
             <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
               <Sparkles className="h-5 w-5 text-primary-foreground fill-primary-foreground" />
             </div>
-            <span className="font-extrabold text-xl tracking-tight">AI Mastery</span>
-            <Badge variant="secondary" className="ml-2 hidden lg:flex items-center gap-1.5 bg-secondary/50 text-[10px] py-0 px-2 border-none font-bold">
+            <span className="font-extrabold text-xl tracking-tight">BAAP Academy</span>
+            {/* <Badge variant="secondary" className="ml-2 hidden lg:flex items-center gap-1.5 bg-secondary/50 text-[10px] py-0 px-2 border-none font-bold">
               <TrendingUp className="h-3 w-3" /> Top Workshop 2026
-            </Badge>
+            </Badge> */}
           </div>
-          
+
           <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-muted-foreground">
             {["Benefits", "Curriculum", "Mentor", "Reviews", "FAQ"].map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-primary transition-colors">{item}</a>
@@ -224,7 +222,7 @@ const Index = () => {
             <Button onClick={join} className="hidden sm:flex rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-6 font-bold shadow-lg shadow-primary/20">
               Join Now
             </Button>
-            
+
             {/* Mobile Menu */}
             <Sheet>
               <SheetTrigger asChild>
@@ -234,7 +232,7 @@ const Index = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <SheetHeader>
-                  <SheetTitle className="text-left font-extrabold text-xl">AI Mastery</SheetTitle>
+                  <SheetTitle className="text-left font-extrabold text-xl">BAAP Academy</SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-6 mt-8">
                   {["Benefits", "Curriculum", "Mentor", "Reviews", "FAQ"].map((item) => (
@@ -254,10 +252,10 @@ const Index = () => {
       <section className="relative overflow-hidden bg-gradient-soft">
         <div className="absolute -top-24 -right-24 h-[480px] w-[480px] rounded-full bg-primary-glow/20 blur-3xl" />
         <div className="absolute -bottom-24 -left-24 h-[380px] w-[380px] rounded-full bg-primary/10 blur-3xl" />
-        <div className="container relative grid lg:grid-cols-2 gap-12 items-center py-16 md:py-24">
+        <div className="container relative grid lg:grid-cols-2 gap-16 items-center py-16 md:py-24">
           <div className="space-y-6 animate-fade-up">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-soft border border-primary/20 text-sm font-semibold text-primary">
-              <Sparkles className="h-4 w-4" /> 28-Day AI Mastery Plan
+              <Sparkles className="h-4 w-4" /> 28-Day BAAP Academy Plan
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 animate-up">
               AI FROM <span className="text-secondary">ZERO</span> TO <span className="text-gradient-primary">HERO</span>
@@ -269,9 +267,9 @@ const Index = () => {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
-                { label: "28 Days", desc: "Structured Plan" },
+                { label: "26 Days", desc: "Structured Plan" },
                 { label: "15 Modules", desc: "Full Coverage" },
-                { label: "50+ Tools", desc: "All Free Tiers" },
+                { label: "30+ Tools", desc: "All Free Tiers" },
                 { label: "Zero Code", desc: "Needed" }
               ].map((stat, i) => (
                 <div key={i} className="bg-white/60 border border-border/50 rounded-2xl p-4 text-center backdrop-blur-sm">
@@ -284,7 +282,7 @@ const Index = () => {
             <div className="flex flex-wrap gap-4 items-center pt-2">
               <div className="flex items-center gap-2">
                 <div className="flex">
-                  {[1,2,3,4,5].map((i) => <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />)}
+                  {[1, 2, 3, 4, 5].map((i) => <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />)}
                 </div>
                 <span className="text-sm font-semibold">4.8/5 · 5,625 reviews</span>
               </div>
@@ -298,7 +296,7 @@ const Index = () => {
 
             <div className="flex flex-wrap gap-3 pt-2">
               <Button onClick={join} size="lg" className="bg-gradient-cta shadow-cta animate-pulse-glow text-white rounded-full px-8 h-14 text-base">
-                Join Now · ₹199
+                Join Now · ₹2599
               </Button>
               <Button variant="outline" size="lg" className="rounded-full px-6 h-14 text-base border-2">
                 <Play className="mr-2 h-4 w-4" /> Watch Preview
@@ -308,16 +306,18 @@ const Index = () => {
 
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-cta blur-3xl opacity-20 rounded-full" />
-            <div className="relative rounded-3xl overflow-hidden shadow-card bg-card">
-              <img src={heroImg} alt="AI workshop mentor teaching ChatGPT and AI tools" className="w-full h-auto" width={1280} height={896} />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button className="h-20 w-20 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-cta hover:scale-110 transition">
-                  <Play className="h-8 w-8 text-primary ml-1 fill-primary" />
-                </button>
-              </div>
+            <div className="relative rounded-3xl overflow-hidden shadow-card bg-card border-4 border-white/10 shadow-glow max-w-[380px] mx-auto">
+              <video
+                src={raosir}
+                className="w-full h-full object-cover max-h-[450px]"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-                <p className="text-white font-semibold text-sm">Vaibhav Sharma</p>
-                <p className="text-white/80 text-xs">Founder · AI Mastery · Ex-Uber</p>
+                <p className="text-white font-semibold text-sm">Raosir</p>
+                <p className="text-white/80 text-xs">Expert Mentor · BAAP Academy</p>
               </div>
             </div>
 
@@ -355,7 +355,7 @@ const Index = () => {
             {/* Row 1 */}
             <div className="flex animate-marquee whitespace-nowrap gap-4">
               {[...learnerData, ...learnerData].map((learner, i) => (
-                <LearnerCard key={i} name={learner.name} image={learner.image} companyLogo={learner.logo} />
+                <LearnerCard key={i} name={learner.name} image={learner.image} />
               ))}
             </div>
           </div>
@@ -390,22 +390,22 @@ const Index = () => {
                     <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
                     <p className="text-sm"><b>Structure of Each Day:</b> Objectives, Topics, PPT Breakdown, Classroom Activity, and Homework.</p>
                   </li>
-                  <li className="flex gap-3 items-start">
+                  {/* <li className="flex gap-3 items-start">
                     <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
                     <p className="text-sm"><b>PPT Colour Legend:</b> Use Navy for concepts, Orange for activities, and Green for takeaways.</p>
                   </li>
                   <li className="flex gap-3 items-start">
                     <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
                     <p className="text-sm"><b>Teacher Tips:</b> Expert delivery advice provided for every single session.</p>
-                  </li>
+                  </li> */}
                 </ul>
                 <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
-                  <div className="flex gap-2">
+                  {/* <div className="flex gap-2">
                     <div className="w-8 h-8 rounded bg-blue-900 border border-white/20" />
                     <div className="w-8 h-8 rounded bg-orange-600 border border-white/20" />
                     <div className="w-8 h-8 rounded bg-green-700 border border-white/20" />
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest opacity-60">PPT Style Guide</span>
+                  </div> */}
+                  {/* <span className="text-[10px] font-bold uppercase tracking-widest opacity-60">PPT Style Guide</span> */}
                 </div>
               </div>
               <Card className="bg-primary p-8 text-white rounded-3xl shadow-glow overflow-hidden relative">
@@ -427,8 +427,8 @@ const Index = () => {
 
       <section id="benefits" className="py-16 md:py-24 bg-gradient-soft overflow-hidden">
         <div className="container">
-          <h2 className="text-center text-3xl md:text-5xl font-extrabold mb-16 italic">Learn <span className="text-gradient-primary">50+ AI Tools</span> In 28 Days</h2>
-          
+          <h2 className="text-center text-3xl md:text-5xl font-extrabold mb-16 italic">Learn <span className="text-gradient-primary">30+ AI Tools</span> In 26 Days</h2>
+
           <div className="max-w-6xl mx-auto space-y-8">
             {/* Row 1 - Featured & Clear */}
             <div className="flex flex-wrap justify-center gap-4 animate-fade-up">
@@ -464,7 +464,7 @@ const Index = () => {
       <section id="curriculum" className="py-20 bg-white relative overflow-hidden">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">The <span className="text-gradient-primary">28-Day</span> Mastery Road</h2>
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">The <span className="text-gradient-primary">26-Day</span> Mastery Road</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto italic font-medium">From fundamental concepts to sophisticated AI workflows in four transformative weeks.</p>
           </div>
 
@@ -473,7 +473,7 @@ const Index = () => {
               <div className="bg-white border border-border/60 rounded-3xl shadow-xl overflow-hidden animate-fade-in">
                 <div className="bg-secondary/50 px-6 py-4 border-b border-border/60 flex justify-between items-center">
                   <h3 className="font-bold flex items-center gap-2">
-                    <Calendar className="h-4 w-4 text-primary" /> Full 28-Day Schedule
+                    <Calendar className="h-4 w-4 text-primary" /> Full 26-Day Schedule
                   </h3>
                   <CustomBadge text="15 Modules · 28 Sessions" />
                 </div>
@@ -561,7 +561,7 @@ const Index = () => {
                 </div>
                 <div className="relative z-10">
                   <h4 className="text-2xl font-black mb-2 italic">Teacher Outlines Included</h4>
-                  <p className="text-sm text-primary-foreground/80 mb-6 font-medium">Get full access to the 28-day PPTs, activity guides, and expert delivery tips.</p>
+                  <p className="text-sm text-primary-foreground/80 mb-6 font-medium">Get full access to the 26-Day PPTs, activity guides, and expert delivery tips.</p>
                   <RegistrationDialog trigger={
                     <Button variant="secondary" size="lg" className="w-full font-black text-primary shadow-xl hover:scale-105 transition-transform py-7 text-lg rounded-2xl">
                       Get The Full Access <ArrowRight className="ml-2 h-5 w-5" />
@@ -579,8 +579,8 @@ const Index = () => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
               {[
-                { title: "Full PPT Outlines", desc: "For every single session across all 28 days.", icon: Palette },
-                { title: "Free Tool Directory", desc: "Access 50+ tools with zero-cost accounts.", icon: Zap },
+                { title: "Full PPT Outlines", desc: "For every single session across all 26 days.", icon: Palette },
+                { title: "Free Tool Directory", desc: "Access 30+ tools with zero-cost accounts.", icon: Zap },
                 { title: "Classroom Activities", desc: "Hands-on exercises designed for engagement.", icon: Sparkles },
                 { title: "Teacher Tips", desc: "Expert delivery advice for every session.", icon: Briefcase }
               ].map((b, i) => (
@@ -596,7 +596,7 @@ const Index = () => {
             <div className="text-center mt-12">
               <RegistrationDialog trigger={
                 <Button onClick={join} size="xl" className="bg-gradient-primary text-white rounded-full px-12 group h-16 text-lg font-black shadow-lg">
-                  Start Your 28-Day Journey <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  Start Your 26-Day Journey <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               } />
             </div>
@@ -607,7 +607,7 @@ const Index = () => {
       {/* WHY JOIN */}
       <section className="py-16 md:py-20 bg-gradient-soft">
         <div className="container">
-          <h2 className="text-center text-3xl md:text-4xl font-extrabold mb-12 italic">Why This <span className="text-gradient-primary">28-Day Plan?</span></h2>
+          <h2 className="text-center text-3xl md:text-4xl font-extrabold mb-12 italic">Why This <span className="text-gradient-primary">26-Day Plan?</span></h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               { icon: Clock, title: "Save 10+ hours every week", desc: "Automate repetitive work and focus on what matters." },
@@ -634,13 +634,13 @@ const Index = () => {
           <p className="text-center text-muted-foreground mt-3 max-w-2xl mx-auto">…as they guide you through cutting-edge tools — transforming the way you work and create</p>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { name: "Raghuveer Nishthala", title: "Brand Marketer", company: "Uber" },
-              { name: "Shantanu Tungare", title: "AI Film Maker · Bulb Chumka", company: "" },
-              { name: "Vaibhav Sharma", title: "Founder · AI Mastery", company: "" },
-              { name: "KVS Dileep", title: "Head of AI Initiatives", company: "" },
+              { name: "Sanika Shelke", title: "Brand Marketer", company: "" },
+              { name: "Saish Jape", title: "AI Film Maker · Bulb Chumka", company: "" },
+              { name: "Rahul Wale", title: "Founder · BAAP Academy", company: "" },
+              { name: "Sharad Waje", title: "Head of AI Initiatives", company: "" },
             ].map((m, i) => (
               <Card key={i} className="overflow-hidden hover:shadow-glow hover:-translate-y-1 transition">
-                <img src={[mentorImg, t2, mentorImg, t4][i]} alt={m.name} className="w-full aspect-square object-cover" loading="lazy" />
+                <img src={[sanika, saish, rahul, sharad][i]} alt={m.name} className="w-full aspect-square object-cover" loading="lazy" />
                 <div className="p-4">
                   <h4 className="font-bold">{m.name}</h4>
                   <p className="text-sm text-primary font-medium">{m.title}</p>
@@ -657,7 +657,7 @@ const Index = () => {
         <div className="container">
           <p className="text-center text-xs tracking-widest font-semibold text-muted-foreground uppercase opacity-80">HEAR IT FROM THEM</p>
           <h2 className="text-center text-3xl md:text-5xl font-extrabold mt-3">See what's possible here</h2>
-          
+
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {linkedInPosts.map((post, i) => (
               <LinkedInPostCard key={i} {...post} />
@@ -678,9 +678,9 @@ const Index = () => {
       {/* WHY GROWTHSCHOOL / Trust */}
       <section className="py-16 md:py-20">
         <div className="container max-w-4xl text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold">Why AI Mastery?</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold">Why BAAP Academy?</h2>
           <p className="text-muted-foreground mt-4 text-lg">
-            AI Mastery is where you become the <span className="text-primary font-bold">Top 1%</span> in your field. We bring the best of Product, Growth, Design, Tech, Data and Business mentors from brands like <span className="text-primary font-bold">Google, Meta, Uber</span> doing the jobs you want to do tomorrow.
+            BAAP Academy is where you become the <span className="text-primary font-bold">Top 1%</span> in your field. We bring the best of Product, Growth, Design, Tech, Data and Business mentors from brands like <span className="text-primary font-bold">Google, Meta, Uber</span> doing the jobs you want to do tomorrow.
           </p>
           <div className="mt-10 grid grid-cols-2 gap-5 max-w-md mx-auto">
             <div className="rounded-2xl border-2 border-border bg-card p-6 text-center">
@@ -695,7 +695,7 @@ const Index = () => {
             </div>
           </div>
           <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border-2 border-border bg-card px-5 py-3">
-            <span className="font-bold">AI Mastery</span>
+            <span className="font-bold">BAAP Academy</span>
             <span className="text-border">|</span>
             <span className="inline-flex items-center gap-1 text-sm font-semibold"><Linkedin className="h-4 w-4" /> Top Startup 2026</span>
           </div>
@@ -710,8 +710,8 @@ const Index = () => {
           </h2>
           <Card className="bg-gradient-cta text-white p-8 shadow-cta border-0">
             <div className="text-center">
-              <p className="text-5xl font-extrabold">₹199</p>
-              <p className="mt-2"><span className="line-through opacity-80">₹1,999</span> <span className="font-bold">(Save 90%)</span></p>
+              <p className="text-5xl font-extrabold">₹2599</p>
+              <p className="mt-2"><span className="line-through opacity-80">₹5,000</span> <span className="font-bold">(Save 48%)</span></p>
             </div>
             <p className="mt-6 font-semibold">Register now and get our bestselling workshop at 100% that includes:</p>
             <ul className="mt-4 space-y-3">
@@ -766,7 +766,7 @@ const Index = () => {
               { q: "What is ChatGPT, and how can it benefit my business?", a: "ChatGPT is an AI language model that can automate tasks, improve efficiency, and enhance customer engagement across content, support, sales, and operations." },
               { q: "Can I expect hands-on training and practical examples during the workshop?", a: "Yes. Every module includes live demos, exercises, and real workflows you build alongside the mentor." },
               { q: "How can ChatGPT help me save time and resources in my business operations?", a: "By automating writing, research, data analysis, customer replies, and content creation that previously took hours." },
-              { q: "What kind of support and resources will be available to me after the workshop?", a: "Lifetime access to our private community, recordings for 7 days, the AI Toolkit PDF, and 50+ ready-to-use prompts." },
+              { q: "What kind of support and resources will be available to me after the workshop?", a: "Lifetime access to our private community, recordings for 7 days, the AI Toolkit PDF, and 30+ ready-to-use prompts." },
               { q: "How can I stay updated on future developments, workshops, and courses?", a: "You'll be added to our learner newsletter and Discord community for first access to new drops." },
               { q: "When does the workshop start?", a: "It runs across two days: 18th & 19th April, 10 AM – 7 PM IST." },
               { q: "Will this be live or pre-recorded?", a: "100% live with the mentor. Replays are available for 7 days." },
@@ -789,7 +789,7 @@ const Index = () => {
           <h2 className="text-3xl md:text-5xl font-extrabold mt-4">Your Career Will Change Faster With AI</h2>
           <p className="mt-4 text-lg opacity-80">Join thousands of professionals learning practical AI skills today.</p>
           <Button onClick={join} size="lg" className="mt-8 bg-gradient-cta shadow-cta animate-pulse-glow text-white rounded-full px-10 h-14">
-            Join Now · ₹199
+            Join Now · ₹2599
           </Button>
         </div>
       </section>
@@ -801,7 +801,7 @@ const Index = () => {
             <div className="h-8 w-8 rounded-lg bg-gradient-cta flex items-center justify-center">
               <Sparkles className="h-4 w-4 text-white" />
             </div>
-            <span className="font-bold">AI Mastery</span>
+            <span className="font-bold">BAAP Academy</span>
           </div>
           <nav className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground">Privacy</a>
@@ -816,7 +816,7 @@ const Index = () => {
             <a href="#" aria-label="Twitter"><Twitter className="h-5 w-5 hover:text-primary" /></a>
           </div>
         </div>
-        <p className="text-center text-xs text-muted-foreground mt-6">© {new Date().getFullYear()} AI Mastery. All rights reserved.</p>
+        <p className="text-center text-xs text-muted-foreground mt-6">© {new Date().getFullYear()} BAAP Academy. All rights reserved.</p>
       </footer>
 
       {/* STICKY BOTTOM CTA */}
@@ -824,9 +824,9 @@ const Index = () => {
         <div className="container flex items-center justify-between gap-4 py-3">
           <div className="min-w-0">
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-extrabold">₹199</span>
-              <span className="text-sm line-through text-muted-foreground">₹1,999</span>
-              <span className="text-sm font-bold text-promo">90% OFF</span>
+              <span className="text-2xl font-extrabold">₹2599</span>
+              <span className="text-sm line-through text-muted-foreground">₹5,000</span>
+              <span className="text-sm font-bold text-promo">48% OFF</span>
             </div>
             <p className="text-xs text-muted-foreground truncate">Deadline 17 April · Only {seats} seats left</p>
           </div>
