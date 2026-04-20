@@ -23,7 +23,7 @@ interface Props {
 export const RegistrationDialog = ({ open: controlledOpen, onOpenChange: setControlledOpen, trigger }: Props) => {
   const [internalOpen, setInternalOpen] = useState(false);
   const isControlled = controlledOpen !== undefined;
-  
+
   const open = isControlled ? controlledOpen : internalOpen;
   const onOpenChange = (o: boolean) => {
     if (isControlled && setControlledOpen) {
@@ -79,7 +79,7 @@ export const RegistrationDialog = ({ open: controlledOpen, onOpenChange: setCont
               </div>
               <div className="space-y-2">
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">You're in!</h3>
-                <p className="text-muted-foreground text-sm sm:text-base max-w-[240px]">We've sent the 28-day plan details to your email.</p>
+                <p className="text-muted-foreground text-sm sm:text-base max-w-[240px]">We've sent the 26-Day plan details to your email.</p>
               </div>
             </div>
           ) : (
@@ -89,47 +89,47 @@ export const RegistrationDialog = ({ open: controlledOpen, onOpenChange: setCont
                   Reserve Your Seat
                 </DialogTitle>
                 <DialogDescription className="text-sm sm:text-base font-medium">
-                  Just <span className="text-primary font-bold">₹199</span> · Limited Period Offer
+                  Just <span className="text-primary font-bold">₹2599</span> · Limited Period Offer
                 </DialogDescription>
               </DialogHeader>
               <form onSubmit={submit} className="space-y-5">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-sm font-bold ml-1">Full Name</Label>
-                  <Input 
-                    id="name" 
-                    value={form.name} 
-                    onChange={(e) => setForm({ ...form, name: e.target.value })} 
-                    placeholder="Enter your name" 
+                  <Input
+                    id="name"
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    placeholder="Enter your name"
                     className="h-12 rounded-xl border-border/60 bg-muted/30 focus:bg-white transition-all text-base"
                   />
                   {errors.name && <p className="text-xs font-semibold text-destructive mt-1 ml-1">{errors.name}</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-sm font-bold ml-1">Email Address</Label>
-                  <Input 
-                    id="email" 
-                    type="email" 
-                    value={form.email} 
-                    onChange={(e) => setForm({ ...form, email: e.target.value })} 
-                    placeholder="you@example.com" 
+                  <Input
+                    id="email"
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    placeholder="you@example.com"
                     className="h-12 rounded-xl border-border/60 bg-muted/30 focus:bg-white transition-all text-base"
                   />
                   {errors.email && <p className="text-xs font-semibold text-destructive mt-1 ml-1">{errors.email}</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone" className="text-sm font-bold ml-1">WhatsApp Number</Label>
-                  <Input 
-                    id="phone" 
-                    value={form.phone} 
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })} 
-                    placeholder="+91 XXXXX XXXXX" 
+                  <Input
+                    id="phone"
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    placeholder="+91 XXXXX XXXXX"
                     className="h-12 rounded-xl border-border/60 bg-muted/30 focus:bg-white transition-all text-base"
                   />
                   {errors.phone && <p className="text-xs font-semibold text-destructive mt-1 ml-1">{errors.phone}</p>}
                 </div>
-                <Button 
-                  type="submit" 
-                  disabled={loading} 
+                <Button
+                  type="submit"
+                  disabled={loading}
                   className="w-full h-14 bg-primary hover:bg-primary/95 text-primary-foreground rounded-xl text-lg font-bold shadow-lg shadow-primary/20 transition-all hover:scale-[1.01] active:scale-[0.99] mt-2"
                 >
                   {loading ? (
