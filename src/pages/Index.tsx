@@ -33,6 +33,7 @@ import rushi from "@/assets/rushi.png";
 import rahul from "@/assets/rahul.png";
 import ashu from "@/assets/ashu.png";
 import raosir from "@/assets/raosir.mp4";
+import baapLogo from "@/assets/baap-logo.png";
 import certificate from "@/assets/certificate.png";
 import { LearnerCard } from "@/components/LearnerCard";
 import { LinkedInPostCard } from "@/components/LinkedInPostCard";
@@ -203,13 +204,8 @@ const Index = () => {
       <header className="sticky top-0 z-40 backdrop-blur-md bg-background/85 border-b border-border">
         <div className="container flex items-center justify-between h-16 md:h-20 px-4">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
-              <Sparkles className="h-5 w-5 text-primary-foreground fill-primary-foreground" />
-            </div>
+            <img src={baapLogo} alt="BAAP Academy Logo" className="h-10 md:h-12 w-auto object-contain" />
             <span className="font-extrabold text-xl tracking-tight">BAAP Academy</span>
-            {/* <Badge variant="secondary" className="ml-2 hidden lg:flex items-center gap-1.5 bg-secondary/50 text-[10px] py-0 px-2 border-none font-bold">
-              <TrendingUp className="h-3 w-3" /> Top Workshop 2026
-            </Badge> */}
           </div>
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-muted-foreground">
@@ -232,7 +228,10 @@ const Index = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <SheetHeader>
-                  <SheetTitle className="text-left font-extrabold text-xl">BAAP Academy</SheetTitle>
+                  <SheetTitle className="text-left flex items-center gap-2">
+                    <img src={baapLogo} alt="BAAP Academy" className="h-8 w-auto object-contain" />
+                    <span className="font-extrabold text-lg">BAAP Academy</span>
+                  </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-6 mt-8">
                   {["Benefits", "Curriculum", "Mentor", "Reviews", "FAQ"].map((item) => (
@@ -798,9 +797,7 @@ const Index = () => {
       <footer className="py-10 border-t border-border bg-background">
         <div className="container flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-gradient-cta flex items-center justify-center">
-              <Sparkles className="h-4 w-4 text-white" />
-            </div>
+            <img src={baapLogo} alt="BAAP Academy Logo" className="h-8 w-auto object-contain" />
             <span className="font-bold">BAAP Academy</span>
           </div>
           <nav className="flex gap-6 text-sm text-muted-foreground">
