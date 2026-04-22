@@ -89,7 +89,7 @@ export const RegistrationDialog = ({ open: controlledOpen, onOpenChange: setCont
                   Reserve Your Seat
                 </DialogTitle>
                 <DialogDescription className="text-sm sm:text-base font-medium">
-                  Just <span className="text-primary font-bold">₹2599</span> · Limited Period Offer
+                  Just <span className="text-primary font-bold">₹1999</span> · Limited Period Offer
                 </DialogDescription>
               </DialogHeader>
               <form onSubmit={submit} className="space-y-5">

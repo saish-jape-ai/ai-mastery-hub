@@ -193,7 +193,7 @@ const Index = () => {
         <div className="flex animate-marquee whitespace-nowrap py-2 text-sm font-bold">
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i} className="mx-6 inline-flex items-center gap-2">
-              <Star className="h-4 w-4 fill-current" /> Flat 48% Off
+              <Star className="h-4 w-4 fill-current" /> Flat 50% OFF
               <Star className="h-4 w-4 fill-current ml-6" /> Limited Period Offer
             </span>
           ))}
@@ -204,11 +204,11 @@ const Index = () => {
       <header className="sticky top-0 z-40 backdrop-blur-md bg-background/85 border-b border-border">
         <div className="container flex items-center justify-between h-16 md:h-20 px-4">
           <div className="flex items-center gap-2">
-            <img src={baapLogo} alt="BAAP Academy Logo" className="h-10 md:h-12 w-auto object-contain" />
-            <span className="font-extrabold text-xl tracking-tight">BAAP Academy</span>
+            <img src={baapLogo} alt="BAAP Academy Logo" className="h-8 md:h-9 w-auto object-contain" />
+            <span className="font-extrabold text-xl md:text-2xl tracking-tight">BAAP Academy</span>
           </div>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-muted-foreground">
+          <nav className="hidden md:flex items-center gap-8 text-base font-semibold text-muted-foreground">
             {["Benefits", "Curriculum", "Mentor", "Reviews", "FAQ"].map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-primary transition-colors">{item}</a>
             ))}
@@ -229,8 +229,8 @@ const Index = () => {
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <SheetHeader>
                   <SheetTitle className="text-left flex items-center gap-2">
-                    <img src={baapLogo} alt="BAAP Academy" className="h-8 w-auto object-contain" />
-                    <span className="font-extrabold text-lg">BAAP Academy</span>
+                    <img src={baapLogo} alt="BAAP Academy" className="h-7 w-auto object-contain" />
+                    <span className="font-extrabold text-xl">BAAP Academy</span>
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-6 mt-8">
@@ -295,7 +295,7 @@ const Index = () => {
 
             <div className="flex flex-wrap gap-3 pt-2">
               <Button onClick={join} size="lg" className="bg-gradient-cta shadow-cta animate-pulse-glow text-white rounded-full px-8 h-14 text-base">
-                Join Now · ₹2599
+                Join Now · ₹1999
               </Button>
               <Button variant="outline" size="lg" className="rounded-full px-6 h-14 text-base border-2">
                 <Play className="mr-2 h-4 w-4" /> Watch Preview
@@ -364,7 +364,7 @@ const Index = () => {
               <p className="text-xs uppercase tracking-[0.2em] font-black text-primary mb-3">Teaching Approach</p>
               <h3 className="text-3xl md:text-5xl font-black tracking-tight mb-6">The <span className="text-gradient-primary">APPLY</span> Method</h3>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Every session is built on a proven pedagogical framework that ensures students don't just "watch" AI — they **master** it through active creation.
+                Every session is built on a proven pedagogical framework that ensures students don't just "watch" AI — they <b>master</b> it through active creation.
               </p>
               <div className="space-y-4">
                 {applyMethod.map((m, i) => (
@@ -594,7 +594,7 @@ const Index = () => {
             </div>
             <div className="text-center mt-12">
               <RegistrationDialog trigger={
-                <Button onClick={join} size="lg" className="bg-gradient-primary text-white rounded-full px-12 group h-16 text-lg font-black shadow-lg">
+                <Button size="lg" className="bg-gradient-cta text-white rounded-full px-12 group h-16 text-lg font-black shadow-lg">
                   Start Your 26-Day Journey <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               } />
@@ -709,8 +709,8 @@ const Index = () => {
           </h2>
           <Card className="bg-gradient-cta text-white p-8 shadow-cta border-0">
             <div className="text-center">
-              <p className="text-5xl font-extrabold">₹2599</p>
-              <p className="mt-2"><span className="line-through opacity-80">₹5,000</span> <span className="font-bold">(Save 48%)</span></p>
+              <p className="text-5xl font-extrabold">₹1999</p>
+              <p className="mt-2"><span className="line-through opacity-80">₹4999</span> <span className="font-bold">(Save 48%)</span></p>
             </div>
             <p className="mt-6 font-semibold">Register now and get our bestselling workshop at 100% that includes:</p>
             <ul className="mt-4 space-y-3">
@@ -788,7 +788,7 @@ const Index = () => {
           <h2 className="text-3xl md:text-5xl font-extrabold mt-4">Your Career Will Change Faster With AI</h2>
           <p className="mt-4 text-lg opacity-80">Join thousands of professionals learning practical AI skills today.</p>
           <Button onClick={join} size="lg" className="mt-8 bg-gradient-cta shadow-cta animate-pulse-glow text-white rounded-full px-10 h-14">
-            Join Now · ₹2599
+            Join Now · ₹1999
           </Button>
         </div>
       </section>
@@ -798,7 +798,7 @@ const Index = () => {
         <div className="container flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <img src={baapLogo} alt="BAAP Academy Logo" className="h-8 w-auto object-contain" />
-            <span className="font-bold">BAAP Academy</span>
+            <span className="font-bold text-lg md:text-xl">BAAP Academy</span>
           </div>
           <nav className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground">Privacy</a>
@@ -821,9 +821,9 @@ const Index = () => {
         <div className="container flex items-center justify-between gap-4 py-3">
           <div className="min-w-0">
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-extrabold">₹2599</span>
-              <span className="text-sm line-through text-muted-foreground">₹5,000</span>
-              <span className="text-sm font-bold text-promo">48% OFF</span>
+              <span className="text-2xl font-extrabold">₹1999</span>
+              <span className="text-sm line-through text-muted-foreground">₹4999</span>
+              <span className="text-sm font-bold text-promo">50% OFF</span>
             </div>
             <p className="text-xs text-muted-foreground truncate">Deadline 17 April · Only {seats} seats left</p>
           </div>
